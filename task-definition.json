@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "ecs-devops-sandbox",
-            "image": "<258192220194>.dkr.ecr.<us-east-1>.amazonaws.com/ecs-devops-sandbox-repository:latest",
+            "image": "258192220194.dkr.ecr.us-east-1.amazonaws.com/ecs-devops-sandbox-repository:latest",
             "essential": true,
             "portMappings": [
                 {
@@ -16,6 +16,6 @@
     "networkMode": "awsvpc",
     "memory": "512",
     "cpu": "256",
-    "executionRoleArn": "arn:aws:iam::<258192220194>:role/ecs-devops-sandbox-execution-role",
+    "executionRoleArn": "arn:aws:iam::258192220194:role/ecs-devops-sandbox-execution-role",
     "family": "ecs-devops-sandbox-task-definition"
 }
