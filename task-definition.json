@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "ecs-devops-sandbox",
-            "image": "<AWS_ACCOUNT_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com/ecs-devops-sandbox-repository:latest",
+            "image": "<258192220194>.dkr.ecr.<AWS_REGION>.amazonaws.com/ecs-devops-sandbox-repository:latest",
             "essential": true,
             "portMappings": [
                 {
