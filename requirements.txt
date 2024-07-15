@@ -1,2 +1,2 @@
-Flask version: 2.0.1
-Jinja2 version: 3.0.3
+Flask==2.0.1
+Jinja2==3.0.3
