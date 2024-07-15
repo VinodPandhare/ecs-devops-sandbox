@@ -18,11 +18,14 @@ jobs:
       with:
         python-version: '3.8'
 
-    - name: Install AWS CDK
-      run: pip install aws-cdk.core
+    - name: Install AWS CDK and dependencies
+      run: |
+        pip install aws-cdk.core
+        pip install -r requirements.txt  # Adjust if needed
 
-    - name: Install dependencies
-      run: pip install -r requirements.txt
+    - name: Adjust Python Path (if necessary)
+      run: |
+        export PYTHONPATH="$PYTHONPATH:/path/to/ecs_devops_sandbox_cdk"  # Adjust path as per your project structure
 
     - name: Run tests
       run: python app_test.py
