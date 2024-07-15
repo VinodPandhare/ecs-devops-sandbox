@@ -13,6 +13,10 @@ phases:
       # Install aws-cdk.core if required
       - pip install aws-cdk.core
 
+      # Debugging: List parent directory contents and current directory
+      - ls -al /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/
+      - pwd
+
       # Navigate explicitly to ecs_devops_sandbox_cdk
       - cd /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk
 
@@ -20,7 +24,7 @@ phases:
       - pip install .
 
       # Return to the original directory
-      - cd ..
+      - cd ../..
 
   pre_build:
     commands:
