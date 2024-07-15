@@ -3,7 +3,10 @@ phases:
   install:
     runtime-versions:
       python: 3.10
+    commands:
+      - pip install -r requirements.txt  # Install your project requirements
+      - pip install aws-cdk  # Install the aws_cdk module
+
   pre_build:
     commands:
-      - pip install -r requirements.txt
       - python app_test.py
