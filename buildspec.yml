@@ -5,26 +5,17 @@ phases:
     runtime-versions:
       python: 3.10
     commands:
-      - python -m venv env
-      - source env/bin/activate || . env/bin/activate
-      - pip install --upgrade pip
-      - pip install -r requirements.txt  # Install other project dependencies if needed
+      # Create necessary directories if they do not exist
+      - mkdir -p /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/
 
-      # Install aws-cdk.core if required
-      - pip install aws-cdk.core
+      # Debugging: List contents of parent directory
+      - ls -al /codebuild/output/src498875578/src/github.com/VinodPandhare/
 
-      # Debugging: List parent directory contents and current directory
-      - ls -al /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/
-      - pwd
+      # Navigate explicitly to the correct directory (if it exists)
+      - cd /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk || exit 1
 
-      # Navigate explicitly to ecs_devops_sandbox_cdk
-      - cd /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk
-
-      # Install the CDK module
+      # Install the CDK module if the directory exists
       - pip install .
-
-      # Return to the original directory
-      - cd ../..
 
   pre_build:
     commands:
