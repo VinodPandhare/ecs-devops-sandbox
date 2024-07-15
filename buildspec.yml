@@ -5,8 +5,11 @@ phases:
     runtime-versions:
       python: 3.10
     commands:
-      # Ensure the target directory exists
+      # Create the target directory if it doesn't exist
       - mkdir -p /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk
+
+      # Move the app_test.py file to the correct directory
+      - mv /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/app_test.py /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk/
 
       # Navigate explicitly to the correct directory
       - cd /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk || { echo "Directory not found"; exit 1; }
@@ -17,12 +20,15 @@ phases:
   pre_build:
     commands:
       # List files in the current directory for debugging
+      - echo "Listing files in the current directory:"
       - ls -al
 
       # List files in the parent directory for further debugging
+      - echo "Listing files in the parent directory:"
       - ls -al /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox
 
       # List files in app_test.py directory
+      - echo "Listing files in the ecs_devops_sandbox_cdk directory:"
       - ls -al /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk
 
       # Run app_test.py if it exists
