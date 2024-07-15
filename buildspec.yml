@@ -10,6 +10,7 @@ phases:
       - pip install --upgrade pip
       - pip install -r requirements.txt
       - pip install aws-cdk.core  # Install aws-cdk module
+      - pip install -e ./ecs_devops_sandbox_cdk  # Install your local CDK module if needed
   pre_build:
     commands:
       - python app_test.py
