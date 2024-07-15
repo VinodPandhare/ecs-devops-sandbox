@@ -10,5 +10,5 @@ phases:
 
   pre_build:
     commands:
-      - export PYTHONPATH=$PYTHONPATH:/path/to/your/aws_cdk/installation
+      - export PYTHONPATH=$PYTHONPATH:/root/.npm-global/lib/node_modules/aws-cdk/lib  # Adjust this path as per your npm global installation
       - python app_test.py
