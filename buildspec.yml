@@ -5,11 +5,15 @@ phases:
     runtime-versions:
       python: 3.10
     commands:
-      # Create the target directory if it doesn't exist
+      # Ensure the target directory exists
       - mkdir -p /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk
 
-      # Move the app_test.py file to the correct directory
-      - mv /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/app_test.py /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk/
+      # Debugging: List files in the root of the repository
+      - echo "Listing files in the root of the repository:"
+      - ls -al /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox
+
+      # Move the app_test.py file to the correct directory if it exists
+      - if [ -f /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/app_test.py ]; then mv /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/app_test.py /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk/; else echo "app_test.py not found in the root of the repository"; exit 1; fi
 
       # Navigate explicitly to the correct directory
       - cd /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk || { echo "Directory not found"; exit 1; }
