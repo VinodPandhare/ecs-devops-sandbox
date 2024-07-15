@@ -5,7 +5,7 @@ phases:
     runtime-versions:
       python: 3.10
     commands:
-      # Ensure the target directory exists
+      # Ensure the target directories exist
       - mkdir -p /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk
 
       # Debugging: List files in the root of the repository
