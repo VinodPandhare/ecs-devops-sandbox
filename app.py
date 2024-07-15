@@ -1,9 +1,10 @@
-from flask import Flask
-app = Flask(__name__)
+#!/usr/bin/env python3
+import os
 
-@app.route('/<random_string>')
-def returnBackwardsString(random_string):
-    return "".join(reversed(random_string))
+import aws_cdk as cdk
+from ecs_devops_sandbox_cdk.ecs_devops_sandbox_cdk_stack import EcsDevopsSandboxCdkStack
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+app = cdk.App()
+EcsDevopsSandboxCdkStack(app, "EcsDevopsSandboxCdkStack")
+
+app.synth()
