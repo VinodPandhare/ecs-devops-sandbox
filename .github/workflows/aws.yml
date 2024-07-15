@@ -30,7 +30,7 @@ jobs:
 
     - name: Run tests
       run: |
-        python app_test.py
+        python app.py
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
