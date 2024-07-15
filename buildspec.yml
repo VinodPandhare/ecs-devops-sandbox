@@ -3,11 +3,12 @@ phases:
   install:
     runtime-versions:
       python: 3.10
-      nodejs: 16  # Use Node.js version 16 instead of 14
+      nodejs: 16
     commands:
-      - pip install -r requirements.txt  # Install Python dependencies if any
-      - npm install -g aws-cdk  # Install AWS CDK globally with npm
+      - pip install -r requirements.txt
+      - npm install -g aws-cdk
 
   pre_build:
     commands:
+      - export PYTHONPATH=$PYTHONPATH:/path/to/your/aws_cdk/installation
       - python app_test.py
