@@ -5,17 +5,11 @@ phases:
     runtime-versions:
       python: 3.10
     commands:
-      # Create necessary directories if they do not exist
-      - mkdir -p /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk
-
-      # Debugging: List contents of parent directory
-      - ls -al /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/
-
-      # Navigate explicitly to the correct directory (if it exists)
+      # Navigate to the correct directory
       - cd /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk || { echo "Directory not found"; exit 1; }
 
-      # Install the CDK module if the directory exists
-      - pip install .
+      # Install dependencies using pip directly
+      - pip install flask jinja2  # Example dependencies
 
   pre_build:
     commands:
