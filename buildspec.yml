@@ -19,6 +19,9 @@ phases:
       # List files in the current directory for debugging
       - ls -al
 
+      # List files in app_test.py directory
+      - ls -al /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk
+
       # Run app_test.py if it exists
       - python app_test.py || { echo "app_test.py not found or failed to execute"; exit 1; }
 
