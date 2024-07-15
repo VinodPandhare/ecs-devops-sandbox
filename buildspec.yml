@@ -13,9 +13,13 @@ phases:
       # Install aws-cdk.core if required
       - pip install aws-cdk.core
 
-      # Attempt to install ecs_devops_sandbox_cdk
-      - cd ecs_devops_sandbox_cdk
+      # Navigate explicitly to ecs_devops_sandbox_cdk
+      - cd /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk
+
+      # Install the CDK module
       - pip install .
+
+      # Return to the original directory
       - cd ..
 
   pre_build:
