@@ -1,14 +1,21 @@
 version: 0.2
+
 phases:
   install:
     runtime-versions:
       python: 3.10
-      nodejs: 16
     commands:
       - pip install -r requirements.txt
-      - npm install -g aws-cdk
-
   pre_build:
     commands:
-      - export PYTHONPATH=$PYTHONPATH:/root/.npm-global/lib/node_modules
+      - echo Pre-build phase
+  build:
+    commands:
+      - echo Build phase
+  post_build:
+    commands:
       - python app_test.py
+
+artifacts:
+  files:
+    - '**/*'
