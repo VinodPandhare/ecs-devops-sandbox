@@ -9,7 +9,14 @@ phases:
       - source env/bin/activate || . env/bin/activate
       - pip install --upgrade pip
       - pip install -r requirements.txt  # Install other project dependencies if needed
-      - pip install -e ./ecs_devops_sandbox_cdk  # Install your module in editable mode
+
+      # Install aws-cdk.core if required
+      - pip install aws-cdk.core
+
+      # Attempt to install ecs_devops_sandbox_cdk
+      - cd ecs_devops_sandbox_cdk
+      - pip install .
+      - cd ..
 
   pre_build:
     commands:
