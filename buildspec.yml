@@ -5,13 +5,13 @@ phases:
     runtime-versions:
       python: 3.10
     commands:
-      # List contents of parent directory for debugging
-      - ls -al /codebuild/output/src498875578/src/github.com/VinodPandhare
+      # Navigate to the correct directory if it exists
+      - mkdir -p /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk
 
-      # Navigate to the correct directory
+      # Navigate explicitly to the correct directory
       - cd /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk || { echo "Directory not found"; exit 1; }
 
-      # Install dependencies using pip directly
+      # Install dependencies using pip directly (adjust as per your needs)
       - pip install flask jinja2  # Example dependencies
 
   pre_build:
