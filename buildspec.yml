@@ -5,6 +5,9 @@ phases:
     runtime-versions:
       python: 3.10
     commands:
+      # List contents of parent directory for debugging
+      - ls -al /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/
+
       # Navigate to the correct directory
       - cd /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk || { echo "Directory not found"; exit 1; }
 
