@@ -5,13 +5,13 @@ phases:
     runtime-versions:
       python: 3.10
     commands:
-      # Navigate to the correct directory if it exists
+      # Ensure the target directory exists
       - mkdir -p /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk
 
       # Navigate explicitly to the correct directory
       - cd /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk || { echo "Directory not found"; exit 1; }
 
-      # Install dependencies using pip directly (adjust as per your needs)
+      # Install dependencies using pip directly
       - pip install flask jinja2  # Example dependencies
 
   pre_build:
@@ -19,11 +19,14 @@ phases:
       # List files in the current directory for debugging
       - ls -al
 
+      # List files in the parent directory for further debugging
+      - ls -al /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox
+
       # List files in app_test.py directory
       - ls -al /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk
 
       # Run app_test.py if it exists
-      - python app_test.py || { echo "app_test.py not found or failed to execute"; exit 1; }
+      - if [ -f /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk/app_test.py ]; then python /codebuild/output/src498875578/src/github.com/VinodPandhare/ecs-devops-sandbox/ecs_devops_sandbox_cdk/app_test.py; else echo "app_test.py not found"; exit 1; fi
 
   build:
     commands:
